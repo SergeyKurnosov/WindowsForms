@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace WindowsForms
 {
@@ -20,6 +21,8 @@ namespace WindowsForms
 		private void timer_Tick(object sender, EventArgs e)
 		{
 			labelCurrentTime.Text = DateTime.Now.ToString("HH:mm:ss");
+			labelCurrentDate.Text = checkBoxDate.Checked ? DateTime.Now.ToString("yyyy:MM:dd") : labelCurrentDate.Text = "";
+			labelCurrentDay.Text = checkBoxDay.Checked ? DateTime.Now.ToString("dddd") : labelCurrentDay.Text = "";
 		}
 	}
 }
