@@ -56,6 +56,7 @@
 			// 
 			this.labelCurrentTime.AutoSize = true;
 			this.labelCurrentTime.BackColor = System.Drawing.SystemColors.Control;
+			this.labelCurrentTime.ContextMenuStrip = this.cmMainMenu;
 			this.labelCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelCurrentTime.Location = new System.Drawing.Point(21, 9);
 			this.labelCurrentTime.Name = "labelCurrentTime";
@@ -108,6 +109,7 @@
 			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
 			this.notifyIcon.Text = "notifyIcon";
 			this.notifyIcon.Visible = true;
+			this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
 			// 
 			// cmMainMenu
 			// 
@@ -133,6 +135,7 @@
 			this.cmTopmost.Name = "cmTopmost";
 			this.cmTopmost.Size = new System.Drawing.Size(168, 22);
 			this.cmTopmost.Text = "Topmost";
+			this.cmTopmost.CheckedChanged += new System.EventHandler(this.cmTopmost_CheckedChanged);
 			// 
 			// cmShowControls
 			// 
@@ -140,6 +143,7 @@
 			this.cmShowControls.Name = "cmShowControls";
 			this.cmShowControls.Size = new System.Drawing.Size(168, 22);
 			this.cmShowControls.Text = "show controls";
+			this.cmShowControls.CheckedChanged += new System.EventHandler(this.cmShowControls_CheckedChanged);
 			// 
 			// cmDebugConsole
 			// 
@@ -147,6 +151,7 @@
 			this.cmDebugConsole.Name = "cmDebugConsole";
 			this.cmDebugConsole.Size = new System.Drawing.Size(168, 22);
 			this.cmDebugConsole.Text = "console ";
+			this.cmDebugConsole.CheckedChanged += new System.EventHandler(this.cmDebugConsole_CheckedChanged);
 			// 
 			// toolStripSeparator1
 			// 
@@ -204,7 +209,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(379, 450);
+			this.ClientSize = new System.Drawing.Size(379, 370);
 			this.Controls.Add(this.btnHideControls);
 			this.Controls.Add(this.cbShowWeekDay);
 			this.Controls.Add(this.cbShowDate);
