@@ -138,6 +138,7 @@
 			this.cmFont.Name = "cmFont";
 			this.cmFont.Size = new System.Drawing.Size(180, 22);
 			this.cmFont.Text = "font";
+			this.cmFont.Click += new System.EventHandler(this.cmFont_Click);
 			// 
 			// cmBackColor
 			// 
