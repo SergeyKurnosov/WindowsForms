@@ -122,6 +122,7 @@
 			this.Controls.Add(this.lblExample);
 			this.Controls.Add(this.comboBoxChooseFont);
 			this.Controls.Add(this.lblChooseFont);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "ChooseFont";
 			this.ShowInTaskbar = false;
