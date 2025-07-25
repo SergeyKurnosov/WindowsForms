@@ -34,9 +34,9 @@ namespace WindowsForms
 			cbShowDate.Visible = visible;
 			cbShowWeekDay.Visible = visible;
 			btnHideControls.Visible = visible;
-			this.ShowInTaskbar = visible;
+		//	this.ShowInTaskbar = visible;
 			this.TransparencyKey = visible ? Color.Empty : this.BackColor;
-			this.FormBorderStyle = visible ? FormBorderStyle.FixedToolWindow : FormBorderStyle.None;
+		//	this.FormBorderStyle = visible ? FormBorderStyle.FixedToolWindow : FormBorderStyle.None;
 			this.labelCurrentTime.BackColor = visible ? this.BackColor : Color.DeepSkyBlue;
 		}
 
@@ -72,7 +72,10 @@ namespace WindowsForms
 
 		private void labelCurrentTime_DoubleClick(object sender, EventArgs e)
 		{
-			ShowControls(cmShowControls.Checked = true);
+				ShowControls(cmShowControls.Checked = true);
+		//	Point mousePos = Control.MousePosition;
+		//	this.Location = mousePos;
+		//	labelCurrentTime.Location = mousePos;
 		}
 
 		private void cmClose_Click(object sender, EventArgs e)
@@ -131,7 +134,12 @@ namespace WindowsForms
 
 		private void cmForeColor_Click(object sender, EventArgs e)
 		{
-			cdForeColor.ShowDialog();
+		    ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
+			ContextMenuStrip menu = menuItem.Owner as ContextMenuStrip;
+			Control source = menu.SourceControl;
+			Form parent = menu.Parent as Form;
+
+			cdForeColor.ShowDialog(parent);
 			labelCurrentTime.ForeColor = cdForeColor.Color;
 		}
 
@@ -139,6 +147,14 @@ namespace WindowsForms
 		{
 			chooseFont.ShowDialog();
 			labelCurrentTime.Font = chooseFont.Font;
+		}
+
+		private void labelCurrentTime_Click(object sender, EventArgs e)
+		{
+		////	Point mousePos = Control.MousePosition;
+
+		//	labelCurrentTime.Location = mousePos;
+			
 		}
 	}
 }

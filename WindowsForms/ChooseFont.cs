@@ -19,8 +19,12 @@ namespace WindowsForms
 		public ChooseFont()
 		{
 			InitializeComponent();
-			comboBoxChooseFont.Items.AddRange(GetFontListFromCurrentDirectoryByExtension("*.ttf"));
-			comboBoxChooseFont.Items.AddRange(GetFontListFromCurrentDirectoryByExtension("*.otf"));
+			string[] fonts_ttf = GetFontListFromCurrentDirectoryByExtension("*.ttf");
+			string[] fonts_otf = GetFontListFromCurrentDirectoryByExtension("*.otf");
+			string[] all_fonts = fonts_ttf.Concat(fonts_otf).ToArray();
+			Array.Sort(all_fonts, StringComparer.OrdinalIgnoreCase);
+
+			comboBoxChooseFont.Items.AddRange(all_fonts);
 			comboBoxChooseFont.SelectedIndex = 0; // Если из списка ничего не выбранно SelectedIndex = -1
 
 		}
@@ -33,11 +37,11 @@ namespace WindowsForms
 			Directory.SetCurrentDirectory($"{execution_path}\\..\\..\\Fonts");
 			Console.WriteLine(Directory.GetCurrentDirectory());
 			string[] fonts = Directory.GetFiles(Directory.GetCurrentDirectory(), extension);
+			
 			for (int i = 0; i < fonts.Length; i++)
 			{
 				fonts[i] = fonts[i].Split('\\').Last();
 			}
-
 			return fonts;
 		}
 

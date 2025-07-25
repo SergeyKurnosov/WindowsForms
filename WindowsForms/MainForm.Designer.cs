@@ -63,6 +63,7 @@
 			this.labelCurrentTime.Size = new System.Drawing.Size(252, 51);
 			this.labelCurrentTime.TabIndex = 0;
 			this.labelCurrentTime.Text = "currentTime";
+			this.labelCurrentTime.Click += new System.EventHandler(this.labelCurrentTime_Click);
 			this.labelCurrentTime.DoubleClick += new System.EventHandler(this.labelCurrentTime_DoubleClick);
 			// 
 			// cmMainMenu
@@ -225,6 +226,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
+			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.Text = "Clock";
 			this.cmMainMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
