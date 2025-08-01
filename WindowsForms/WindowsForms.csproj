@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alarm.cs" />
     <Compile Include="ChooseFont.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChooseFont.Designer.cs">
       <DependentUpon>ChooseFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CountDownTimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CountDownTimer.Designer.cs">
+      <DependentUpon>CountDownTimer.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -62,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChooseFont.resx">
       <DependentUpon>ChooseFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CountDownTimer.resx">
+      <DependentUpon>CountDownTimer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

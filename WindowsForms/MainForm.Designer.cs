@@ -51,7 +51,24 @@
 			this.cbShowWeekDay = new System.Windows.Forms.CheckBox();
 			this.btnHideControls = new System.Windows.Forms.Button();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.cmAlarms = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.cmNewAlarm = new System.Windows.Forms.ToolStripMenuItem();
+			this.cmOnlyTime = new System.Windows.Forms.ToolStripMenuItem();
+			this.cmOnlyDateTime = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+			this.btnAlarms = new System.Windows.Forms.Button();
+			this.dtpDateTime = new System.Windows.Forms.DateTimePicker();
+			this.dtpTime = new System.Windows.Forms.DateTimePicker();
+			this.rbsound1 = new System.Windows.Forms.RadioButton();
+			this.rbsound2 = new System.Windows.Forms.RadioButton();
+			this.rbsound3 = new System.Windows.Forms.RadioButton();
+			this.rbsound4 = new System.Windows.Forms.RadioButton();
+			this.rbsound5 = new System.Windows.Forms.RadioButton();
+			this.rbsound6 = new System.Windows.Forms.RadioButton();
+			this.btnTimer = new System.Windows.Forms.Button();
 			this.cmMainMenu.SuspendLayout();
+			this.cmAlarms.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// labelCurrentTime
@@ -60,7 +77,7 @@
 			this.labelCurrentTime.BackColor = System.Drawing.SystemColors.Control;
 			this.labelCurrentTime.ContextMenuStrip = this.cmMainMenu;
 			this.labelCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelCurrentTime.Location = new System.Drawing.Point(21, 9);
+			this.labelCurrentTime.Location = new System.Drawing.Point(12, 9);
 			this.labelCurrentTime.Name = "labelCurrentTime";
 			this.labelCurrentTime.Size = new System.Drawing.Size(252, 51);
 			this.labelCurrentTime.TabIndex = 0;
@@ -192,7 +209,7 @@
 			// 
 			this.cbShowDate.AutoSize = true;
 			this.cbShowDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.cbShowDate.Location = new System.Drawing.Point(21, 158);
+			this.cbShowDate.Location = new System.Drawing.Point(12, 233);
 			this.cbShowDate.Name = "cbShowDate";
 			this.cbShowDate.Size = new System.Drawing.Size(193, 33);
 			this.cbShowDate.TabIndex = 1;
@@ -203,7 +220,7 @@
 			// 
 			this.cbShowWeekDay.AutoSize = true;
 			this.cbShowWeekDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.cbShowWeekDay.Location = new System.Drawing.Point(21, 205);
+			this.cbShowWeekDay.Location = new System.Drawing.Point(12, 188);
 			this.cbShowWeekDay.Name = "cbShowWeekDay";
 			this.cbShowWeekDay.Size = new System.Drawing.Size(284, 33);
 			this.cbShowWeekDay.TabIndex = 2;
@@ -213,9 +230,9 @@
 			// btnHideControls
 			// 
 			this.btnHideControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnHideControls.Location = new System.Drawing.Point(21, 265);
+			this.btnHideControls.Location = new System.Drawing.Point(12, 290);
 			this.btnHideControls.Name = "btnHideControls";
-			this.btnHideControls.Size = new System.Drawing.Size(202, 75);
+			this.btnHideControls.Size = new System.Drawing.Size(145, 68);
 			this.btnHideControls.TabIndex = 3;
 			this.btnHideControls.Text = "Скрыть элементы управления";
 			this.btnHideControls.UseVisualStyleBackColor = true;
@@ -229,11 +246,180 @@
 			this.notifyIcon.Visible = true;
 			this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
 			// 
+			// cmAlarms
+			// 
+			this.cmAlarms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator5,
+            this.cmNewAlarm,
+            this.toolStripSeparator6});
+			this.cmAlarms.Name = "cmMainMenu";
+			this.cmAlarms.Size = new System.Drawing.Size(228, 60);
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(171, 6);
+			// 
+			// cmNewAlarm
+			// 
+			this.cmNewAlarm.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.cmNewAlarm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmOnlyTime,
+            this.cmOnlyDateTime});
+			this.cmNewAlarm.ForeColor = System.Drawing.Color.Red;
+			this.cmNewAlarm.Name = "cmNewAlarm";
+			this.cmNewAlarm.Size = new System.Drawing.Size(227, 22);
+			this.cmNewAlarm.Text = "Добавить новый будильник";
+			this.cmNewAlarm.Click += new System.EventHandler(this.cmNewAlarm_Click);
+			// 
+			// cmOnlyTime
+			// 
+			this.cmOnlyTime.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.cmOnlyTime.Name = "cmOnlyTime";
+			this.cmOnlyTime.Size = new System.Drawing.Size(151, 22);
+			this.cmOnlyTime.Text = "Только время";
+			this.cmOnlyTime.Click += new System.EventHandler(this.cmOnlyTime_Click);
+			// 
+			// cmOnlyDateTime
+			// 
+			this.cmOnlyDateTime.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.cmOnlyDateTime.Name = "cmOnlyDateTime";
+			this.cmOnlyDateTime.Size = new System.Drawing.Size(151, 22);
+			this.cmOnlyDateTime.Text = "Дата и время";
+			this.cmOnlyDateTime.Click += new System.EventHandler(this.cmOnlyDateTime_Click);
+			// 
+			// toolStripSeparator6
+			// 
+			this.toolStripSeparator6.Name = "toolStripSeparator6";
+			this.toolStripSeparator6.Size = new System.Drawing.Size(171, 6);
+			// 
+			// btnAlarms
+			// 
+			this.btnAlarms.ContextMenuStrip = this.cmAlarms;
+			this.btnAlarms.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnAlarms.Location = new System.Drawing.Point(302, 313);
+			this.btnAlarms.Name = "btnAlarms";
+			this.btnAlarms.Size = new System.Drawing.Size(151, 45);
+			this.btnAlarms.TabIndex = 5;
+			this.btnAlarms.Text = "Будильники";
+			this.btnAlarms.UseVisualStyleBackColor = true;
+			this.btnAlarms.Click += new System.EventHandler(this.btnAlarms_Click);
+			// 
+			// dtpDateTime
+			// 
+			this.dtpDateTime.CustomFormat = "HH:mm:ss   yyyy.MM.dd";
+			this.dtpDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpDateTime.Location = new System.Drawing.Point(302, 195);
+			this.dtpDateTime.Name = "dtpDateTime";
+			this.dtpDateTime.Size = new System.Drawing.Size(200, 20);
+			this.dtpDateTime.TabIndex = 6;
+			this.dtpDateTime.Visible = false;
+			// 
+			// dtpTime
+			// 
+			this.dtpTime.CustomFormat = "HH:mm:ss";
+			this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpTime.Location = new System.Drawing.Point(302, 195);
+			this.dtpTime.Name = "dtpTime";
+			this.dtpTime.ShowUpDown = true;
+			this.dtpTime.Size = new System.Drawing.Size(200, 20);
+			this.dtpTime.TabIndex = 8;
+			this.dtpTime.Visible = false;
+			// 
+			// rbsound1
+			// 
+			this.rbsound1.AutoSize = true;
+			this.rbsound1.Location = new System.Drawing.Point(349, 12);
+			this.rbsound1.Name = "rbsound1";
+			this.rbsound1.Size = new System.Drawing.Size(91, 17);
+			this.rbsound1.TabIndex = 9;
+			this.rbsound1.Text = "intro-zastavka";
+			this.rbsound1.UseVisualStyleBackColor = true;
+			this.rbsound1.CheckedChanged += new System.EventHandler(this.rbsound1_CheckedChanged);
+			// 
+			// rbsound2
+			// 
+			this.rbsound2.AutoSize = true;
+			this.rbsound2.Location = new System.Drawing.Point(349, 35);
+			this.rbsound2.Name = "rbsound2";
+			this.rbsound2.Size = new System.Drawing.Size(134, 17);
+			this.rbsound2.TabIndex = 10;
+			this.rbsound2.Text = "melodiya-na-bubentsah";
+			this.rbsound2.UseVisualStyleBackColor = true;
+			this.rbsound2.CheckedChanged += new System.EventHandler(this.rbsound2_CheckedChanged);
+			// 
+			// rbsound3
+			// 
+			this.rbsound3.AutoSize = true;
+			this.rbsound3.Location = new System.Drawing.Point(349, 58);
+			this.rbsound3.Name = "rbsound3";
+			this.rbsound3.Size = new System.Drawing.Size(74, 17);
+			this.rbsound3.TabIndex = 11;
+			this.rbsound3.Text = "jutkii-smeh";
+			this.rbsound3.UseVisualStyleBackColor = true;
+			this.rbsound3.CheckedChanged += new System.EventHandler(this.rbsound3_CheckedChanged);
+			// 
+			// rbsound4
+			// 
+			this.rbsound4.AutoSize = true;
+			this.rbsound4.Location = new System.Drawing.Point(349, 81);
+			this.rbsound4.Name = "rbsound4";
+			this.rbsound4.Size = new System.Drawing.Size(100, 17);
+			this.rbsound4.TabIndex = 12;
+			this.rbsound4.Text = "protyajnyiy-zvuk";
+			this.rbsound4.UseVisualStyleBackColor = true;
+			this.rbsound4.CheckedChanged += new System.EventHandler(this.rbsound4_CheckedChanged);
+			// 
+			// rbsound5
+			// 
+			this.rbsound5.AutoSize = true;
+			this.rbsound5.Location = new System.Drawing.Point(349, 104);
+			this.rbsound5.Name = "rbsound5";
+			this.rbsound5.Size = new System.Drawing.Size(101, 17);
+			this.rbsound5.TabIndex = 13;
+			this.rbsound5.Text = "korotkoy-melodii";
+			this.rbsound5.UseVisualStyleBackColor = true;
+			this.rbsound5.CheckedChanged += new System.EventHandler(this.rbsound5_CheckedChanged);
+			// 
+			// rbsound6
+			// 
+			this.rbsound6.AutoSize = true;
+			this.rbsound6.Checked = true;
+			this.rbsound6.Location = new System.Drawing.Point(349, 127);
+			this.rbsound6.Name = "rbsound6";
+			this.rbsound6.Size = new System.Drawing.Size(122, 17);
+			this.rbsound6.TabIndex = 14;
+			this.rbsound6.TabStop = true;
+			this.rbsound6.Text = "звук по умолчанию";
+			this.rbsound6.UseVisualStyleBackColor = true;
+			this.rbsound6.CheckedChanged += new System.EventHandler(this.rbsound6_CheckedChanged);
+			// 
+			// btnTimer
+			// 
+			this.btnTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnTimer.Location = new System.Drawing.Point(302, 233);
+			this.btnTimer.Name = "btnTimer";
+			this.btnTimer.Size = new System.Drawing.Size(151, 40);
+			this.btnTimer.TabIndex = 15;
+			this.btnTimer.Text = "таймер";
+			this.btnTimer.UseVisualStyleBackColor = true;
+			this.btnTimer.Click += new System.EventHandler(this.btnTimer_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(379, 370);
+			this.ClientSize = new System.Drawing.Size(506, 370);
+			this.Controls.Add(this.btnTimer);
+			this.Controls.Add(this.rbsound6);
+			this.Controls.Add(this.rbsound5);
+			this.Controls.Add(this.rbsound4);
+			this.Controls.Add(this.rbsound3);
+			this.Controls.Add(this.rbsound2);
+			this.Controls.Add(this.rbsound1);
+			this.Controls.Add(this.dtpTime);
+			this.Controls.Add(this.dtpDateTime);
+			this.Controls.Add(this.btnAlarms);
 			this.Controls.Add(this.btnHideControls);
 			this.Controls.Add(this.cbShowWeekDay);
 			this.Controls.Add(this.cbShowDate);
@@ -246,6 +432,7 @@
 			this.Text = "Clock";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.cmMainMenu.ResumeLayout(false);
+			this.cmAlarms.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -274,6 +461,22 @@
 		private System.Windows.Forms.ToolStripMenuItem cmClose;
 		private System.Windows.Forms.ToolStripMenuItem cmLoadOnWindowsStartUp;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+		private System.Windows.Forms.ContextMenuStrip cmAlarms;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+		private System.Windows.Forms.ToolStripMenuItem cmNewAlarm;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+		private System.Windows.Forms.Button btnAlarms;
+		private System.Windows.Forms.DateTimePicker dtpDateTime;
+		private System.Windows.Forms.DateTimePicker dtpTime;
+		private System.Windows.Forms.ToolStripMenuItem cmOnlyTime;
+		private System.Windows.Forms.ToolStripMenuItem cmOnlyDateTime;
+		private System.Windows.Forms.RadioButton rbsound1;
+		private System.Windows.Forms.RadioButton rbsound2;
+		private System.Windows.Forms.RadioButton rbsound3;
+		private System.Windows.Forms.RadioButton rbsound4;
+		private System.Windows.Forms.RadioButton rbsound5;
+		public System.Windows.Forms.RadioButton rbsound6;
+		private System.Windows.Forms.Button btnTimer;
 	}
 }
 
